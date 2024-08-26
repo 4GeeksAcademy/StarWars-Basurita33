@@ -1,0 +1,36 @@
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.navbar-logo {
+    height: 120px;
+}
+
+.navbar-button {
+    margin-left: auto;
+    padding: 0 15px;
+    
+}
+
+.dropdown-toggle {
+    background-color: rgb(255, 202, 29);
+    color: black;
+    border: none;
+}
+
+.dropdown-toggle:hover {
+    background-color: rgb(253, 197, 13);
+    color: black;
+    border: none;
+}
+
+.dropdown-toggle::after {
+    background-color: rgb(255, 202, 29);
+}
+
+.dropdown-menu {
+    background-color: rgb(255, 202, 29);
+    border: none;
+}

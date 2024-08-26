@@ -1,43 +1,77 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
-			demo: [
-				{
-					title: "FIRST",
-					background: "white",
-					initial: "white"
-				},
-				{
-					title: "SECOND",
-					background: "white",
-					initial: "white"
-				}
-			]
+			characters: [],
+			planets: [],
+			starships: [],
+			favorites: []
 		},
 		actions: {
-			// Use getActions to call a function within a fuction
-			exampleFunction: () => {
-				getActions().changeColor(0, "green");
+
+			getCharacters: async () => {
+				try {
+					const url = "https://www.swapi.tech/api/people";
+					const response = await fetch(url);
+					const data = await response.json();
+					setStore({ characters: data.results });
+				}
+				catch (error) {
+					console.log(error);
+				}
 			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
+
+			getPlanets: async () => {
+				try {
+					const url = "https://www.swapi.tech/api/planets";
+					const response = await fetch(url);
+					const data = await response.json();
+					setStore({ planets: data.results });
+				}
+				catch (error) {
+					console.log(error);
+				}
 			},
-			changeColor: (index, color) => {
-				//get the store
+
+			getStarships: async () => {
+				try {
+					const url = "https://www.swapi.tech/api/starships";
+					const response = await fetch(url);
+					const data = await response.json();
+					setStore({ starships: data.results });
+				}
+				catch (error) {
+					console.log(error);
+				}
+			},
+
+			getDetails: async (uid, type) => {
+				try {
+					const url = `https://www.swapi.tech/api/${type}/${uid}`;
+				    const response = await fetch(url);
+				    const data = await response.json();
+				    return data.result.properties;
+				} 
+				catch (error) {
+					console.log(error);
+				}				
+			},
+
+			addFavorite: (item, type) => {
 				const store = getStore();
+				const newItem = { ...item, type: type };
+				if(store.favorites.some(favorite => favorite.uid === item.uid && favorite.type === type)) {
+					setStore({ favorites: [...store.favorites, newItem] });
+				} 		
+			},
 
-				//we have to loop the entire demo array to look for the respective index
-				//and change its color
-				const demo = store.demo.map((elm, i) => {
-					if (i === index) elm.background = color;
-					return elm;
-				});
-
-				//reset the global store
-				setStore({ demo: demo });
-			}
+			deleteFromFavorite: (uid, type) => {
+                const store = getStore();
+                const updatedFavorites = store.favorites.filter(
+                    favorite => !(favorite.uid === uid && favorite.type === type)
+                );
+                setStore({ favorites: updatedFavorites });
+            },
+						
 		}
 	};
 };

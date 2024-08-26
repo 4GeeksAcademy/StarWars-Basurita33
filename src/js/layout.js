@@ -1,36 +1,49 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
-
-import { Home } from "./views/home";
-import { Demo } from "./views/demo";
-import { Single } from "./views/single";
 import injectContext from "./store/appContext";
+import { Container, Row, Col } from "react-bootstrap";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import { Navbar } from "./component/navbar";
-import { Footer } from "./component/footer";
+//views:
+import { Home } from "./views/home";
+import { CardInfo } from "./views/cardInfo";
 
-//create your first component
+//components:
+import NavbarMenu from "./component/navbarMenu";
+import Footer from "./component/footer";
+
+//layout view
 const Layout = () => {
 	//the basename is used when your project is published in a subdirectory and not in the root of the domain
 	// you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
 	const basename = process.env.BASENAME || "";
 
 	return (
-		<div>
+		<Container>
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
-					<Navbar />
-					<Routes>
-						<Route path="/" element={<Home />} />
-						<Route path="/demo" element={<Demo />} />
-						<Route path="/single/:theid" element={<Single />} />
-						<Route path="*" element={<h1>Not found!</h1>} />
-					</Routes>
-					<Footer />
+					<Row>
+						<Col>
+						    <NavbarMenu />
+						</Col>
+					</Row>
+					<Row>
+						<Col>
+						  <Routes>
+							<Route exact path="/" element={<Home />} />
+						    <Route path="/card" element={<CardInfo />} />
+						    <Route path="*" element={<h1>Not found!</h1>} />
+					      </Routes>
+					    </Col>
+					</Row>
+					<Row>
+						<Col>
+						  <Footer />
+						</Col>
+					</Row>														
 				</ScrollToTop>
 			</BrowserRouter>
-		</div>
+		</Container>
 	);
 };
 
