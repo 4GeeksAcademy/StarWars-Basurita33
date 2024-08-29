@@ -3,26 +3,26 @@ import { Container, Row, Col } from "react-bootstrap";
 
 import { Context } from "../store/appContext";
 
-import SmallPlanets from "./smallPlanets";
+import SmallVehicles from "./smallVehicles";
 
-const Planets = () => {
+const Vehicles = () => {
   const { actions, store } = useContext(Context);
 
   useEffect(() => {
-    actions.getPlanets();
+    actions.getVehicles();
   }, []);
 
   return (
     <Container>
       <Row>
         <Col className="d-flex overflow-auto">
-          {store.planets.map((planet, index) => {
+          {store.vehicles.map((vehicle, index) => {
             return (
-              <SmallPlanets
-                uid={planet.uid}
+              <SmallVehicles
+                uid={vehicle.uid}
                 key={index}
-                item={planet}
-                type="planets"
+                item={vehicle}
+                type="vehicles"
               />
             );
           })}
@@ -32,4 +32,4 @@ const Planets = () => {
   );
 };
 
-export default Planets;
+export default Vehicles;

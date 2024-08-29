@@ -20,7 +20,7 @@ const NavbarMenu = () => {
 					/>
 				</Link>
 			</Navbar.Brand>
-			<DropdownButton title="Favorites" className="navbar-button">
+			<DropdownButton title="Favorites" className="navbar-button new-amsterdam-regular">
 				<DropdownMenu>
 					{store.favorites.map((favorite, index) => {
 						return (

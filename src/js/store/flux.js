@@ -1,11 +1,13 @@
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
+		
 		store: {
 			characters: [],
 			planets: [],
-			starships: [],
+			vehicles: [],
 			favorites: []
 		},
+
 		actions: {
 
 			getCharacters: async () => {
@@ -14,6 +16,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const response = await fetch(url);
 					const data = await response.json();
 					setStore({ characters: data.results });
+					console.log(data);
 				}
 				catch (error) {
 					console.log(error);
@@ -26,18 +29,20 @@ const getState = ({ getStore, getActions, setStore }) => {
 					const response = await fetch(url);
 					const data = await response.json();
 					setStore({ planets: data.results });
+					console.log(data);
 				}
 				catch (error) {
 					console.log(error);
 				}
 			},
 
-			getStarships: async () => {
+			getVehicles: async () => {
 				try {
-					const url = "https://www.swapi.tech/api/starships";
+					const url = "https://www.swapi.tech/api/vehicles";
 					const response = await fetch(url);
 					const data = await response.json();
 					setStore({ starships: data.results });
+					console.log(data);
 				}
 				catch (error) {
 					console.log(error);
@@ -56,24 +61,18 @@ const getState = ({ getStore, getActions, setStore }) => {
 				}				
 			},
 
-			addFavorite: (item, type) => {
-				const store = getStore();
-				const newItem = { ...item, type: type };
-				if(store.favorites.some(favorite => favorite.uid === item.uid && favorite.type === type)) {
-					setStore({ favorites: [...store.favorites, newItem] });
-				} 		
-			},
-
-			deleteFromFavorite: (uid, type) => {
-                const store = getStore();
-                const updatedFavorites = store.favorites.filter(
-                    favorite => !(favorite.uid === uid && favorite.type === type)
-                );
-                setStore({ favorites: updatedFavorites });
-            },
-						
-		}
-	};
+			// toggleFavorite: (favName) => {
+			// 	const store = getStore();
+			// 	if(store.favorites.includes(favName)) {
+			// 		setStore({favorites: store.favorites.filter((repited) => repited != favName)});
+			// 	} else {
+			// 		setStore({favorites:[...store.favorites, favName]});
+			// 	}
+			// 	console.log(toggleFavorite);					
+			// }
+		}						
+	}
 };
+
 
 export default getState;

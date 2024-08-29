@@ -1,6 +1,36 @@
+body {
+    background-image: url(https://scx2.b-cdn.net/gfx/news/hires/2018/studyofdista.jpg
+	);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h2 {
+    color: rgb(253, 197, 13);
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.new-amsterdam-regular {
+    font-family: "New Amsterdam", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+
 .card-view.card {
     width: 100%;
 }
+
 .card-view {
     display: flex;
     justify-content: center;
