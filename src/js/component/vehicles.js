@@ -3,7 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 
 import { Context } from "../store/appContext";
 
-import SmallVehicles from "./smallVehicles";
+import { SmallVehicles } from "./smallVehicles";
 
 const Vehicles = () => {
   const { actions, store } = useContext(Context);
@@ -16,11 +16,11 @@ const Vehicles = () => {
     <Container>
       <Row>
         <Col className="d-flex overflow-auto">
-          {store.vehicles.map((vehicle, index) => {
+          {store.vehicles.map((vehicle) => {
             return (
               <SmallVehicles
                 uid={vehicle.uid}
-                key={index}
+                key={vehicle.uid}
                 item={vehicle}
                 type="vehicles"
               />

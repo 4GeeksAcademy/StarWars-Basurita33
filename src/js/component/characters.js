@@ -3,26 +3,27 @@ import { Container, Row, Col } from "react-bootstrap";
 import { Context } from "../store/appContext";
 
 //components
-import SmallCharacters from "./smallCharacters";
+import { SmallCharacters } from "./smallCharacters";
 
 const Characters = () => {
   const { actions, store } = useContext(Context);
 
   useEffect(() => {
     actions.getCharacters();
+
   }, []);
 
   return (
     <Container>
       <Row>
         <Col className="d-flex overflow-auto">
-          {store.characters.map((character, index) => {
+          {store.characters.map((character) => {
             return (
               <div>
                 <SmallCharacters
                   uid={character.uid}
-                  key={index}
-                  item={character}
+                  key={character.uid}
+                  name={character.name}
                   type="characters"
                 />
               </div>

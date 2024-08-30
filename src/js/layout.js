@@ -8,6 +8,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Home } from "./views/home";
 import { CardCharacter } from "./views/cardCharacter";
 import { CardPlanet } from "./views/cardPlanet";
+import { CardVehicle } from "./views/cardVehicle";
 
 //components:
 import NavbarMenu from "./component/navbarMenu";
@@ -34,6 +35,7 @@ const Layout = () => {
                 <Route exact path="/" element={<Home />} />
                 <Route path="/cardcharacter/:uid" element={<CardCharacter />} />
                 <Route path="/cardplanet/:uid" element={<CardPlanet />} />
+                <Route path="/cardvehicle/:uid" element={<CardVehicle />} />
                 <Route path="*" element={<h1>Not found!</h1>} />
               </Routes>
             </Col>

@@ -3,19 +3,17 @@ import { Context } from "../store/appContext";
 import { Card, Button, ButtonGroup } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-export const SmallVehicles = (vehicle, uid) => {
+export const SmallVehicles = ({name, uid}) => {
   const { store, actions } = useContext(Context);
 
   return (
     <Card className="card-view">
-      {/* <Card.Img
+      <Card.Img
         variant="top"
-        src={`https://starwars-visualguide.com/assets/img/vehicle/${uid}.jpg`}
-      /> */}
+        src={`https://starwars-visualguide.com/assets/img/vehicles/${uid}.jpg`}
+      /> 
       <Card.Body>
-        <Card.Title>{vehicle.name}</Card.Title>
-        <Card.Text>Model: {vehicle.model}</Card.Text>
-        <Card.Text>Class: {vehicle.vehicle_class}</Card.Text>
+        <Card.Title>{name}</Card.Title>
         <ButtonGroup>
           <Link to={`/cardVehicle/${uid}`}>
             <Button variant="secondary">Learn more</Button>

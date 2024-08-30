@@ -3,7 +3,7 @@ import { Container, Row, Col } from "react-bootstrap";
 
 import { Context } from "../store/appContext";
 
-import SmallPlanets from "./smallPlanets";
+import { SmallPlanets } from "./smallPlanets";
 
 const Planets = () => {
   const { actions, store } = useContext(Context);
@@ -12,16 +12,20 @@ const Planets = () => {
     actions.getPlanets();
   }, []);
 
+  useEffect(() => {  
+    console.log(store.planets)
+  }, [store.planets]);
+
   return (
     <Container>
       <Row>
         <Col className="d-flex overflow-auto">
-          {store.planets.map((planet, index) => {
+          {store.planets.map((planet) => {
             return (
               <SmallPlanets
                 uid={planet.uid}
-                key={index}
-                item={planet}
+                key={planet.uid}
+                name={planet.name}
                 type="planets"
               />
             );

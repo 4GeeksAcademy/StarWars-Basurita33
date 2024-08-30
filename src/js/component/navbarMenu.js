@@ -22,7 +22,7 @@ const NavbarMenu = () => {
 			</Navbar.Brand>
 			<DropdownButton title="Favorites" className="navbar-button new-amsterdam-regular">
 				<DropdownMenu>
-					{store.favorites.map((favorite, index) => {
+					{/* {store.favorites.map((favorite, index) => {
 						return (
 							<DropdownItem key={index}>
 								{favorite.name}
@@ -31,7 +31,7 @@ const NavbarMenu = () => {
 								</button>
 							</DropdownItem>
 						)
-					})}
+					})} */}
 				</DropdownMenu>
 
 			</DropdownButton>
