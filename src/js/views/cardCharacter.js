@@ -24,8 +24,8 @@ export const CardCharacter = () => {
         <Card.Text>Height: {store.details?.height}</Card.Text>
         <Card.Text>Mass: {store.details?.mass}</Card.Text>
         <ButtonGroup>
-          <Button onClick={() => actions.toggleFavorite} variant="warning">
-            Fav
+          <Button className="favButton" onClick={() => actions.toggleFavorite(store.details?.name)} variant="link">
+            <i class="fa-solid fa-star"></i>
           </Button>
         </ButtonGroup>
       </Card.Body>

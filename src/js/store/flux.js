@@ -74,15 +74,15 @@ const getState = ({ getStore, getActions, setStore }) => {
         }
       },
 
-      // toggleFavorite: (favName) => {
-      // 	const store = getStore();
-      // 	if(store.favorites.includes(favName)) {
-      // 		setStore({favorites: store.favorites.filter((repited) => repited != favName)});
-      // 	} else {
-      // 		setStore({favorites:[...store.favorites, favName]});
-      // 	}
-      // 	console.log(toggleFavorite);
-      // }
+      toggleFavorite: (favName) => {
+      	const store = getStore();
+      	if(store.favorites.includes(favName)) {
+      		setStore({favorites: store.favorites.filter((repited) => repited != favName)});
+      	} else {
+      		setStore({favorites:[...store.favorites, favName]});
+      	}
+      	console.log(toggleFavorite);
+      }
     },
   };
 };

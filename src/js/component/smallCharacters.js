@@ -18,8 +18,8 @@ export const SmallCharacters = ({name, uid}) => {
           <Link to={`/cardCharacter/${uid}`}>
             <Button variant="secondary">Learn more</Button>
           </Link>
-          <Button onClick={() => actions.toggleFavorite} variant="warning">
-            Fav
+          <Button className="favButton" onClick={() => actions.toggleFavorite(name)} variant="link">
+            <i class="fa-solid fa-star"></i>
           </Button>
         </ButtonGroup>
       </Card.Body>

@@ -8,6 +8,7 @@ import { Context } from "../store/appContext";
 const NavbarMenu = () => {
 
 	const { actions, store } = useContext(Context);
+	console.log(store.favorites)
 
 	return (
 		<Navbar className="navbar-container">
@@ -22,16 +23,16 @@ const NavbarMenu = () => {
 			</Navbar.Brand>
 			<DropdownButton title="Favorites" className="navbar-button new-amsterdam-regular">
 				<DropdownMenu>
-					{/* {store.favorites.map((favorite, index) => {
+					{store.favorites.map((favorite, index) => {
 						return (
 							<DropdownItem key={index}>
-								{favorite.name}
-								<button className="btn btn-danger" onClick={() => actions.deleteFavorite(favorite)}>
+								{favorite}
+								<button className="trash btn btn-danger" onClick={() => actions.toggleFavorite(favorite)}>
 									<i className="fas fa-trash-alt"></i>
 								</button>
 							</DropdownItem>
 						)
-					})} */}
+					})}
 				</DropdownMenu>
 
 			</DropdownButton>

@@ -1,6 +1,7 @@
 import React, { useEffect, useContext} from "react";
 import { useParams } from "react-router";
 import { Context } from "../store/appContext";
+import { Card, Button, ButtonGroup } from "react-bootstrap";
 
 export const CardVehicle = (vehicle) => {
   const { uid } = useParams();
@@ -25,8 +26,8 @@ export const CardVehicle = (vehicle) => {
           bulk of the card's content.
         </Card.Text>
         <ButtonGroup>
-          <Button onClick={() => actions.toggleFavorite} variant="warning">
-            Fav
+          <Button className="favButton" onClick={() => actions.toggleFavorite(store.details?.name)} variant="link">
+            <i class="fa-solid fa-star"></i>
           </Button>
         </ButtonGroup>
       </Card.Body>

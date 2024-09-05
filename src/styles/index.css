@@ -24,20 +24,15 @@ h2 {
     font-family: "New Amsterdam", sans-serif;
     font-weight: 400;
     font-style: normal;
-  }
-  
-
-.card-view.card {
-    width: 100%;
 }
-
+  
 .card-view {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px;
     margin: 10px;
-    min-width: 200px;
+    min-width: 250px;
     width: 100%;
     height: 22rem;
     border-radius: 5px;
@@ -45,7 +40,40 @@ h2 {
     background-color: #fff;
 }
 
+.card-view.card {
+    width: 100%;
+    background-color: lightgray;
+}
+
 .card-view img {
     object-fit: cover; 
     height: 200px; 
+    border-radius: 5px;
   }
+
+.favButton {
+    color: #ffc710e5;
+    font-size: 1.5rem;
+    transition: text-shadow 0.3s ease;
+    border: none;
+    outline: none;
+    background-color: transparent;
+}
+
+.favButton:active {
+    text-shadow: 0 0 10px rgb(253, 197, 13), 0 0 20px rgb(253, 197, 13), 0 0 30px rgb(253, 197, 13);
+}
+
+.bigCard {
+    min-width: 600px;
+    width: 100%;
+}
+.footer {
+    color: rgb(255, 208, 0);
+
+}
+
+.footer a {
+    color: rgb(255, 208, 0);
+    text-decoration: underline;
+}
