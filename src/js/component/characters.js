@@ -16,10 +16,10 @@ const Characters = () => {
   return (
     <Container>
       <Row>
-        <Col className="d-flex overflow-auto">
+        <Col className="d-flex gap-3 overflow-auto">
           {store.characters.map((character) => {
             return (
-              <div>
+              <div me-10>
                 <SmallCharacters
                   uid={character.uid}
                   key={character.uid}

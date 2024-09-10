@@ -1,8 +1,8 @@
 import React, { useEffect, useContext } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-
 import { Context } from "../store/appContext";
 
+//Components
 import { SmallVehicles } from "./smallVehicles";
 
 const Vehicles = () => {
@@ -21,7 +21,7 @@ const Vehicles = () => {
               <SmallVehicles
                 uid={vehicle.uid}
                 key={vehicle.uid}
-                item={vehicle}
+                name={vehicle.name}
                 type="vehicles"
               />
             );

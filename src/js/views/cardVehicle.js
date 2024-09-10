@@ -5,7 +5,6 @@ import { Card, Button, ButtonGroup } from "react-bootstrap";
 
 export const CardVehicle = (vehicle) => {
   const { uid } = useParams();
-
   const { store, actions } = useContext(Context);
 
   useEffect(() => {
@@ -22,8 +21,10 @@ export const CardVehicle = (vehicle) => {
       <Card.Body>
         <Card.Title>{store.details?.name}</Card.Title>
         <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
+        <Card.Text>Cargo Capacity: {store.details?.cargo_capacity}</Card.Text>
+        <Card.Text>Crew: {store.details?.crew}</Card.Text>
+        <Card.Text>Manufacturer: {store.details?.manufacturer}</Card.Text>
+        <Card.Text>Model: {store.details?.model}</Card.Text>
         </Card.Text>
         <ButtonGroup>
           <Button className="favButton" onClick={() => actions.toggleFavorite(store.details?.name)} variant="link">

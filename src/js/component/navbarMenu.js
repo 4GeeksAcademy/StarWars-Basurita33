@@ -26,10 +26,12 @@ const NavbarMenu = () => {
 					{store.favorites.map((favorite, index) => {
 						return (
 							<DropdownItem key={index}>
-								{favorite}
+								<div className="d-flex gap-3">
+								<span>{favorite}</span>
 								<button className="trash btn btn-danger" onClick={() => actions.toggleFavorite(favorite)}>
 									<i className="fas fa-trash-alt"></i>
 								</button>
+								</div>								
 							</DropdownItem>
 						)
 					})}

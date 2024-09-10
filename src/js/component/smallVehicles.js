@@ -13,7 +13,7 @@ export const SmallVehicles = ({name, uid}) => {
         src={`https://starwars-visualguide.com/assets/img/vehicles/${uid}.jpg`}
       /> 
       <Card.Body>
-        <Card.Title>{name}</Card.Title>
+        <Card.Title>Name: {name}</Card.Title>
         <ButtonGroup>
           <Link to={`/cardVehicle/${uid}`}>
             <Button variant="secondary">Learn more</Button>
